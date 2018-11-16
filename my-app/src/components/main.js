@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import InputField from './inputField';
+import Numbers from './numbers';
 import '../App.css';
 
 
@@ -21,12 +22,6 @@ export default class Main extends Component {
   }
 
   render() {
-    const number = [1,2,3,4,5,6,7,8,9];
-
-    let numbers = number.map(i => {
-      return <button onClick={this.clickNumber} style={style.button} key={i} className={'button' + i}>{i}</button>
-    })
-
     return (
       <div style={style.body}>
         <div style={style.main}>
@@ -37,7 +32,7 @@ export default class Main extends Component {
           </div>
           <div style={style.buttonRow}>
             <div style={style.buttonRowOne}>
-              {numbers}
+              <Numbers />
             </div>
             <div style={style.buttonRowTwo}>
               <button style={style.buttonOperators}>x</button>
