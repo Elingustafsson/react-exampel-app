@@ -4,33 +4,54 @@ import '../App.css';
 
 
 export default class Main extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      number: 0
+    }
+    this.clickNumber = this.clickNumber.bind(this);
+  }
+
+  clickNumber() {
+    console.log('hej från parent');
+    this.setState(state => ({
+      number: 1
+    }));
+  }
 
   render() {
-    const numbers = [1,2,3,4,5,6,7,8,9];
+    const number = [1,2,3,4,5,6,7,8,9];
+
+    let numbers = number.map(i => {
+      return <button onClick={this.clickNumber} style={style.button} key={i} className={'button' + i}>{i}</button>
+    })
+
     return (
       <div style={style.body}>
         <div style={style.main}>
-          <InputField />
+          <InputField number={this.state.number} />
           <div style={style.firstRow}>
             <button style={style.clear}> Clear </button>
             <button style={style.division}> % </button>
           </div>
           <div style={style.buttonRow}>
             <div style={style.buttonRowOne}>
-              {numbers.map(i => {
-                return <button style={style.button} className={'button' + i}>{i}</button>
-              })}
+              {numbers}
             </div>
             <div style={style.buttonRowTwo}>
+              <button style={style.buttonOperators}>x</button>
               <button style={style.buttonOperators}>-</button>
               <button style={style.buttonOperators}>+</button>
               <button style={style.buttonOperators}>=</button>
             </div>
           </div>
-          <p>Plats för 0</p>
+          <div style={style.buttonRowThree}>
+            <button style={style.buttonZero}>0</button>
+            <button style={style.button}>.</button>
+          </div>
         </div>
       </div>
-
     );
   }
 }
@@ -43,7 +64,7 @@ var style = {
   main: {
     marginTop: '20px',
     width: '300px',
-    height: '400px',
+    height: '380px',
     border: 'solid black 1px',
   },
   firstRow: {
@@ -63,14 +84,17 @@ var style = {
     flexDirection: 'row',
   },
   buttonRowOne: {
-    display: 'flex',
     flexWrap: 'wrap',
     width: '80%',
   },
   buttonRowTwo: {
-    display: 'flex',
     flexDirection: 'column',
     width: '20%',
+  },
+  buttonRowThree: {
+    display: 'flex',
+    width: '80%',
+    marginTop: '-60px',
   },
   buttonOperators: {
     width: '100%',
@@ -80,6 +104,10 @@ var style = {
   },
   button: {
     width: '33.3%',
+    height: '60px',
+  },
+  buttonZero: {
+    width: '66.6%',
     height: '60px',
   }
 }

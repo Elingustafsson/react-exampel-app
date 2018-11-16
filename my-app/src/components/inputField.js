@@ -3,10 +3,11 @@ import '../App.css';
 
 
 export default class InputField extends Component {
+
   render() {
     return (
       <div style={style.input}>
-        <p style={style.result}>0</p>
+        <p style={style.result}>{this.props.number}</p>
       </div>
     );
   }
