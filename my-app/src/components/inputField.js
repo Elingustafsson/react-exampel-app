@@ -3,7 +3,6 @@ import '../App.css';
 
 
 export default class InputField extends Component {
-
   render() {
     return (
       <div style={style.input}>

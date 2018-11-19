@@ -32,7 +32,7 @@ export default class Main extends Component {
           </div>
           <div style={style.buttonRow}>
             <div style={style.buttonRowOne}>
-              <Numbers />
+              <Numbers sendProp={this.clickNumber} />
             </div>
             <div style={style.buttonRowTwo}>
               <button style={style.buttonOperators}>x</button>
