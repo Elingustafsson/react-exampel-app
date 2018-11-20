@@ -9,58 +9,69 @@ export default class Main extends Component {
     super(props);
 
     this.state = {
-      number: 0
+      number: [],
     }
     this.clickNumber = this.clickNumber.bind(this);
   }
 
-  clickNumber(e) {
+  clickNumber = (e) => {
     console.log(e.target.className)
     if (e.target.className === 'button1') {
       this.setState(state => ({
-        number: 1
+        number: [...this.state.number, 1]
       }));
     }
     if (e.target.className === 'button2') {
       this.setState(state => ({
-        number: 2
+        number: [...this.state.number, 2]
       }));
     }
     if (e.target.className === 'button3') {
       this.setState(state => ({
-        number: 3
+        number: [...this.state.number, 3]
       }));
     }
     if (e.target.className === 'button4') {
       this.setState(state => ({
-        number: 4
+        number: [...this.state.number, 4]
       }));
     }
     if (e.target.className === 'button5') {
       this.setState(state => ({
-        number: 5
+        number: [...this.state.number, 5]
       }));
     }
     if (e.target.className === 'button6') {
       this.setState(state => ({
-        number: 6
+        number: [...this.state.number, 6]
       }));
     }
     if (e.target.className === 'button7') {
       this.setState(state => ({
-        number: 7
+        number: [...this.state.number, 7]
       }));
     }
     if (e.target.className === 'button8') {
       this.setState(state => ({
-        number: 8
+        number: [...this.state.number, 8]
       }));
     }
     if (e.target.className === 'button9') {
       this.setState(state => ({
-        number: 9
+        number: [...this.state.number, 9]
       }));
     }
+    if (e.target.className === 'zero') {
+      this.setState(state => ({
+        number: [...this.state.number, 0]
+      }));
+    }
+  }
+
+  clear = () => {
+    this.setState(state => ({
+      number: [],
+    }));
   }
 
   render() {
@@ -69,7 +80,11 @@ export default class Main extends Component {
         <div style={style.main}>
           <InputField number={this.state.number} />
           <div style={style.firstRow}>
-            <button style={style.clear}> Clear </button>
+            <button
+              style={style.clear}
+              onClick={this.clear}
+              className='clear'> Clear
+            </button>
             <button style={style.division}> % </button>
           </div>
           <div style={style.buttonRow}>
@@ -84,7 +99,11 @@ export default class Main extends Component {
             </div>
           </div>
           <div style={style.buttonRowThree}>
-            <button style={style.buttonZero}>0</button>
+            <button
+              style={style.buttonZero}
+              onClick={this.clickNumber}
+              className='zero'> 0
+            </button>
             <button style={style.button}>.</button>
           </div>
         </div>

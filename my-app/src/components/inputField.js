@@ -7,6 +7,7 @@ export default class InputField extends Component {
     return (
       <div style={style.input}>
         <p style={style.result}>{this.props.number}</p>
+        {/* add placeholder for 0? */}
       </div>
     );
   }
