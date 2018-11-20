@@ -14,11 +14,53 @@ export default class Main extends Component {
     this.clickNumber = this.clickNumber.bind(this);
   }
 
-  clickNumber() {
-    console.log('hej från parent');
-    this.setState(state => ({
-      number: 1
-    }));
+  clickNumber(e) {
+    console.log(e.target.className)
+    if (e.target.className === 'button1') {
+      this.setState(state => ({
+        number: 1
+      }));
+    }
+    if (e.target.className === 'button2') {
+      this.setState(state => ({
+        number: 2
+      }));
+    }
+    if (e.target.className === 'button3') {
+      this.setState(state => ({
+        number: 3
+      }));
+    }
+    if (e.target.className === 'button4') {
+      this.setState(state => ({
+        number: 4
+      }));
+    }
+    if (e.target.className === 'button5') {
+      this.setState(state => ({
+        number: 5
+      }));
+    }
+    if (e.target.className === 'button6') {
+      this.setState(state => ({
+        number: 6
+      }));
+    }
+    if (e.target.className === 'button7') {
+      this.setState(state => ({
+        number: 7
+      }));
+    }
+    if (e.target.className === 'button8') {
+      this.setState(state => ({
+        number: 8
+      }));
+    }
+    if (e.target.className === 'button9') {
+      this.setState(state => ({
+        number: 9
+      }));
+    }
   }
 
   render() {
