@@ -120,36 +120,34 @@ export default class Main extends Component {
     /*Ta items ifrån array och gör till nummer*/
       var numberArray = slicedArray.map(element => Number(element));
       console.log(numberArray);
-      /*
-        gör samma sak som map
-          var x1 = slicedArray[0];
-          var x2 = slicedArray[1];
 
-          var a = Number(x1)
-          console.log(a);
-          var b = Number(x2);
-          console.log(b);
-      */
+      function checkInput(operator, number1, number2) {
+        var result;
+        if (operator === "-") {
+          result = number1 - number2
+        } else if (operator === "+") {
+          result = number1 + number2
+        } else if (operator === "x") {
+          result = number1 * number2
+        } else if (operator === "%") {
+          result = number1 / number2
+        }
+        return result;
+      }
 
-        /*
-        Case
-          input: [22, -, 66, +, 88, -, 77]
-          operators =  ["-", "+", "-"]
-          numbers =   [22, 66, 88, 77]
+      var result = checkInput(checkOperator[0], numberArray[0], numberArray[1])
+      console.log("Första uträkningen", result);
+      console.log("Hur många operatorer finns: ", checkOperator.length);
 
-          SUDO
-          Funktion som kollar vilken operator som finns i arrayen.
-          Berätta vad varje operator ska göra.
-          Returnera resultat.
-
-          Ta operators[0] och placera mellan numbers[0] & numbers[1]. Spara resultat i variabel.
-
-          Gör en loop som går igenom operators och placera mellan result och numbers[x+x]. Uppdatera resultat variabel.
-          Ta operator[1] och placera mellan resultat och numbers[2]. Uppdatera resultat variabel.
-          Ta operator[2] och placera mellan resultat och numbers[3]. Uppdatera resultat variabel.
-        */
-
-        
+      for(var i = 1; i < checkOperator.length; i++) {
+        console.log("Varv: ", i+1);
+        result = checkInput(checkOperator[i], result, numberArray[i+1])
+        console.log("Rätt svar detta varv", result);
+      }
+      console.log("slugiltiga svar", result);
+      this.setState(state => ({
+        number: result,
+      }));
   }
 
   render() {
@@ -268,3 +266,33 @@ var style = {
     height: '60px',
   }
 }
+
+
+/*
+  gör samma sak som map
+    var x1 = slicedArray[0];
+    var x2 = slicedArray[1];
+
+    var a = Number(x1)
+    console.log(a);
+    var b = Number(x2);
+    console.log(b);
+*/
+
+  /*
+  Case
+    input: [22, -, 66, +, 88, -, 77]
+    operators =  ["-", "+", "-"]
+    numbers =   [22, 66, 88, 77]
+
+    SUDO
+    Funktion som kollar vilken operator som finns i arrayen.
+    Berätta vad varje operator ska göra.
+    Returnera resultat.
+
+    Ta operators[0] och placera mellan numbers[0] & numbers[1]. Spara resultat i variabel.
+
+    Gör en loop som går igenom operators och placera mellan result och numbers[x+x]. Uppdatera resultat variabel.
+    Ta operator[1] och placera mellan resultat och numbers[2]. Uppdatera resultat variabel.
+    Ta operator[2] och placera mellan resultat och numbers[3]. Uppdatera resultat variabel.
+  */
