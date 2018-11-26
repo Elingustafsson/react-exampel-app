@@ -145,15 +145,16 @@ export default class Main extends Component {
         console.log("Rätt svar detta varv", result);
       }
       console.log("slugiltiga svar", result);
+      console.log(typeof(result));
       this.setState(state => ({
-        number: result,
+        number: [result]
       }));
   }
 
   render() {
     return (
       <div style={style.body}>
-        <div style={style.main}>
+        <div id='body' style={style.main}>
           <InputField number={this.state.number} />
           <div style={style.firstRow}>
             <button
@@ -266,8 +267,6 @@ var style = {
     height: '60px',
   }
 }
-
-
 /*
   gör samma sak som map
     var x1 = slicedArray[0];
@@ -279,20 +278,20 @@ var style = {
     console.log(b);
 */
 
-  /*
-  Case
-    input: [22, -, 66, +, 88, -, 77]
-    operators =  ["-", "+", "-"]
-    numbers =   [22, 66, 88, 77]
+/*
+Case
+  input: [22, -, 66, +, 88, -, 77]
+  operators =  ["-", "+", "-"]
+  numbers =   [22, 66, 88, 77]
 
-    SUDO
-    Funktion som kollar vilken operator som finns i arrayen.
-    Berätta vad varje operator ska göra.
-    Returnera resultat.
+  SUDO
+  Funktion som kollar vilken operator som finns i arrayen.
+  Berätta vad varje operator ska göra.
+  Returnera resultat.
 
-    Ta operators[0] och placera mellan numbers[0] & numbers[1]. Spara resultat i variabel.
+  Ta operators[0] och placera mellan numbers[0] & numbers[1]. Spara resultat i variabel.
 
-    Gör en loop som går igenom operators och placera mellan result och numbers[x+x]. Uppdatera resultat variabel.
-    Ta operator[1] och placera mellan resultat och numbers[2]. Uppdatera resultat variabel.
-    Ta operator[2] och placera mellan resultat och numbers[3]. Uppdatera resultat variabel.
-  */
+  Gör en loop som går igenom operators och placera mellan result och numbers[x+x]. Uppdatera resultat variabel.
+  Ta operator[1] och placera mellan resultat och numbers[2]. Uppdatera resultat variabel.
+  Ta operator[2] och placera mellan resultat och numbers[3]. Uppdatera resultat variabel.
+*/
