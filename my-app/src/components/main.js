@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import InputField from './inputField';
 import Numbers from './numbers';
-import '../App.css';
+import '../App.scss';
 
 
 export default class Main extends Component {
@@ -153,55 +153,48 @@ export default class Main extends Component {
 
   render() {
     return (
-      <div style={style.body}>
-        <div id='body' style={style.main}>
+      <div className='body'>
+        <div className='main'>
           <InputField number={this.state.number} />
-          <div style={style.firstRow}>
+          <div className='firstRow'>
             <button
-              style={style.clear}
               onClick={this.clear}
               className='clear'> Clear
             </button>
             <button
-              style={style.division}
               onClick={this.clickNumber}
               className='division'> %
             </button>
           </div>
-          <div style={style.buttonRow}>
-            <div style={style.buttonRowOne}>
+          <div className='buttonRow'>
+            <div className='buttonRowOne'>
               <Numbers sendProp={this.clickNumber} />
             </div>
-            <div style={style.buttonRowTwo}>
+            <div className='buttonRowTwo'>
               <button
-                style={style.buttonOperators}
                 onClick={this.clickNumber}
                 className='multiplication'> x
               </button>
               <button
-                style={style.buttonOperators}
                 onClick={this.clickNumber}
                 className='subtraction'> -
               </button>
               <button
-                style={style.buttonOperators}
                 onClick={this.clickNumber}
                 className='addition'> +
               </button>
               <button
-                style={style.buttonOperators}
-                onClick={this.equalTo}> =
+                onClick={this.equalTo}
+                className='equalTo'> =
               </button>
             </div>
           </div>
-          <div style={style.buttonRowThree}>
+          <div className='buttonRowThree'>
             <button
-              style={style.buttonZero}
               onClick={this.clickNumber}
               className='zero'> 0
             </button>
             <button
-              style={style.button}
               onClick={this.clickNumber}
               className='dot'> .
             </button>
@@ -211,87 +204,3 @@ export default class Main extends Component {
     );
   }
 }
-
-var style = {
-  body: {
-    display: 'flex',
-    justifyContent: 'center',
-  },
-  main: {
-    marginTop: '20px',
-    width: '300px',
-    height: '380px',
-    border: 'solid black 1px',
-  },
-  firstRow: {
-    display: 'flex',
-  },
-  clear: {
-    width: '80%',
-    height: '60px',
-  },
-  division: {
-    width: '20%',
-    backgroundColor: 'red',
-    color: 'white',
-  },
-  buttonRow: {
-    display: 'flex',
-    flexDirection: 'row',
-  },
-  buttonRowOne: {
-    flexWrap: 'wrap',
-    width: '80%',
-  },
-  buttonRowTwo: {
-    flexDirection: 'column',
-    width: '20%',
-  },
-  buttonRowThree: {
-    display: 'flex',
-    width: '80%',
-    marginTop: '-60px',
-  },
-  buttonOperators: {
-    width: '100%',
-    height: '60px',
-    backgroundColor: 'red',
-    color: 'white',
-  },
-  button: {
-    width: '33.3%',
-    height: '60px',
-  },
-  buttonZero: {
-    width: '66.6%',
-    height: '60px',
-  }
-}
-/*
-  gör samma sak som map
-    var x1 = slicedArray[0];
-    var x2 = slicedArray[1];
-
-    var a = Number(x1)
-    console.log(a);
-    var b = Number(x2);
-    console.log(b);
-*/
-
-/*
-Case
-  input: [22, -, 66, +, 88, -, 77]
-  operators =  ["-", "+", "-"]
-  numbers =   [22, 66, 88, 77]
-
-  SUDO
-  Funktion som kollar vilken operator som finns i arrayen.
-  Berätta vad varje operator ska göra.
-  Returnera resultat.
-
-  Ta operators[0] och placera mellan numbers[0] & numbers[1]. Spara resultat i variabel.
-
-  Gör en loop som går igenom operators och placera mellan result och numbers[x+x]. Uppdatera resultat variabel.
-  Ta operator[1] och placera mellan resultat och numbers[2]. Uppdatera resultat variabel.
-  Ta operator[2] och placera mellan resultat och numbers[3]. Uppdatera resultat variabel.
-*/
