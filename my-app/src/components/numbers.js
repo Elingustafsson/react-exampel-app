@@ -24,5 +24,6 @@ var style = {
   button: {
     width: '33.3%',
     height: '60px',
+    backgroundColor: '#e4eeec',
   },
 }
