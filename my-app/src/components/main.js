@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import InputField from './inputField';
 import Numbers from './numbers';
-import '../App.scss';
+import '../App.sass';
 
 
 export default class Main extends Component {
