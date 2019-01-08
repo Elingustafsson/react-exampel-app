@@ -1,17 +1,26 @@
 import React, { Component } from 'react';
 import InputField from './inputField';
 import Numbers from './numbers';
+import ChangeColor from './changeColor'
 import '../App.sass';
 
 
 export default class Main extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       number: [],
+      backgroundColor: ""
     }
     this.clickNumber = this.clickNumber.bind(this);
+    this.changeColorr = this.changeColorr.bind(this);
+  }
+
+  changeColorr = (e) => {
+    console.log("hej");
+    this.setState(state => ({
+      backgroundColor: "pink"
+    }))
   }
 
   clickNumber = (e) => {
@@ -154,8 +163,10 @@ export default class Main extends Component {
   render() {
     return (
       <div className='body'>
+      <ChangeColor changeColorr={this.changeColorr} />
         <div className='main'>
-          <InputField number={this.state.number} />
+          <InputField number={this.state.number}
+          colorr={this.state.backgroundColor} />
           <div className='firstRow'>
             <button
               onClick={this.clear}
