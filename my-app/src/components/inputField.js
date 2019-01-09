@@ -13,7 +13,7 @@ export default class InputField extends Component {
   render() {
     return (
       <div
-      style={{backgroundColor: this.props.colorr}} 
+      style={{backgroundColor: this.props.colorr}}
       className='input'>
         <p>{this.props.number}</p>
       </div>

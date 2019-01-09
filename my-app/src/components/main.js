@@ -14,12 +14,28 @@ export default class Main extends Component {
     }
     this.clickNumber = this.clickNumber.bind(this);
     this.changeColorr = this.changeColorr.bind(this);
+    this.changeOrange = this.changeOrange.bind(this);
+    this.changeColor = this.changeColor.bind(this);
   }
 
   changeColorr = (e) => {
-    console.log("hej");
+    console.log("rosa");
     this.setState(state => ({
-      backgroundColor: "pink"
+      backgroundColor: "#E60082"
+    }))
+  }
+
+  changeOrange = (e) => {
+    console.log("orange");
+    this.setState(state => ({
+      backgroundColor: "#FF6C00"
+    }))
+  }
+
+  changeColor = (e) => {
+    console.log("blue");
+    this.setState(state => ({
+      backgroundColor: "#340CD8"
     }))
   }
 
@@ -163,7 +179,10 @@ export default class Main extends Component {
   render() {
     return (
       <div className='body'>
-      <ChangeColor changeColorr={this.changeColorr} />
+      <ChangeColor
+        changeColorr={this.changeColorr}
+        changeOrange={this.changeOrange}
+        changeColor={this.changeColor} />
         <div className='main'>
           <InputField number={this.state.number}
           colorr={this.state.backgroundColor} />
